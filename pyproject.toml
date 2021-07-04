@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "python-architecture-linter-demo"
+version = "0.1.0"
+description = "Integrated demo of the python-architecture-linter using released packages"
+authors = ["Brian Graham <Brian@statagroup.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+modular-provider-architecture-definition="~0.1.0"
+python-architecture-linter-cli = "~0.1.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.9.2"
+mypy = "^0.902"
+black = "^21.6b0"
+isort = "^5.8.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+exclude = '''
+/(
+    \.git
+  | \.mypy_cache
+)/
+'''
+
+[tool.isort]
+profile = "black"
+atomic = true
+include_trailing_comma = true
+use_parentheses = true
+src_paths = ["python_architecture_linter", "tests"]
+skip_glob = []
+filter_files = true
+known_first_party = "python_architecture_linter"
+
